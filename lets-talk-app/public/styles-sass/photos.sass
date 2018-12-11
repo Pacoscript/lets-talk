@@ -1,0 +1,35 @@
+.photos
+    background-color: $lets-talk-white
+    padding-top: 20px
+    display: flex
+    text-align: center
+    flex-direction: column
+
+.img_footer
+    text-align: center
+
+.photos__name
+    @extend .contact
+    color: $logo
+    text-align: center
+    border: none
+    padding-top: 5px
+    background-color: transparent
+
+.photos__img__container
+    width: 280px
+    height: 280px
+    background: none
+    overflow: hidden
+    margin: auto
+
+.photos__image
+    width: 100%
+    height: auto
+
+@supports(object-fit: cover)
+    .photos__image
+        height: 100%
+        object-fit: cover
+        object-position: center center
+

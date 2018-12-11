@@ -1,0 +1,76 @@
+.profile
+    background-color: $lets_talk_white
+    text-align: left
+    padding-left: 10%
+    padding-right: 10%
+    color: $lets-talk-grey
+    padding-bottom: 30px
+    
+
+.profile__input
+    margin: 10px
+    margin-left: 0px
+    padding-left: 10px
+    max-width: 300px
+    border: none
+    border-radius: 10px
+    height: 20px
+
+.profile__textarea
+    height: 150px
+    margin: 10px
+    border-radius: 10px
+    border: none
+    resize: none
+
+
+.profile__section
+    // border: 2px solid $lets-talk-grey
+    border-radius: 10px
+    padding: 10px
+
+.profile__form
+    display: flex
+    flex-direction: column
+
+.profile__button
+    border: none
+    border-radius: 20px
+    padding: 10px
+    color: $lets-talk-white
+    background-color: $logo
+
+.container-input
+    display: flex
+    flex-direction: column
+
+.profile__img__container
+    width: 280px
+    height: 280px
+    background: none
+    overflow: hidden
+    margin: auto
+
+.profile__image
+    width: 100%
+    height: auto
+
+@supports(object-fit: cover)
+    .profile__image
+        height: 100%
+        object-fit: cover
+        object-position: center center
+
+@media (min-width: 768px)
+
+    .profile
+        padding-left: 20%
+        padding-right: 20%
+         
+
+@media (min-width: 1024px)
+
+    .profile
+        padding-left: 30%
+        padding-right: 30%
+    

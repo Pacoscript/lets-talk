@@ -1,0 +1,36 @@
+{
+  "name": "lets-talk-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "debug": "node debug .",
+    "test": "mocha logic --timeout 15000",
+    "debug-test": "mocha debug logic --timeout 15000",
+    "coverage": "nyc mocha logic --timeout 15000",
+    "coverage-report": "nyc report --reporter=html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "busboy": "^0.2.14",
+    "cloudinary": "^1.13.2",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "lets-talk-data": "file:../lets-talk-data",
+    "node": "^11.1.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "fs-extra": "^7.0.1",
+    "hasha": "^3.0.0",
+    "nyc": "^13.1.0",
+    "stream-to-array": "^2.3.0",
+    "text2png": "^2.1.0"
+  }
+}

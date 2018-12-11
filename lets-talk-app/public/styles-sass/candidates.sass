@@ -1,0 +1,99 @@
+.candidates
+    background-color: $lets-talk-white
+    min-height: 400px
+    
+.subtitle
+    margin-left: auto
+    margin-right: auto
+    margin-top: 0px
+    padding-top: 10px
+    width: 80%
+    
+
+.presentation
+    margin-left: auto
+    margin-right: auto
+    width: 80%
+    max-width: 400px
+    // border: 1px solid $lets-talk-grey
+    border-radius: 5px
+    background-color: white
+
+.presentation__header
+    display: flex
+    justify-content: space-around
+
+.presentation__title
+    color: $lets-talk-grey
+    text-align: center
+    font-weight: bold
+    margin-top: 0px
+    padding-top: 10px
+    width: 80%
+
+.presentation__name
+    @extend .presentation
+    color: $logo
+    text-align: center
+    border: none
+
+.presentation__text
+    margin-left: auto
+    margin-right: auto
+    width: 90%
+    color: $lets-talk-grey
+    text-align: justify
+    border: none
+    height: 200px
+
+.presentation__buttons
+    @extend .presentation
+    background-color: transparent
+    display: flex
+    justify-content: space-around
+    border: none
+    margin-top: 15px
+
+.button
+    border: 1px solid $lets-talk-white
+    border-radius: 5px
+    padding: 10px
+    color: $lets-talk-white
+    background-color: $lets-talk-grey
+
+.fa-angle-left
+    font-size: 165% 
+    padding-left: 6px
+    padding-right: 6px
+
+.fa-angle-right
+    font-size: 165%
+    padding-left: 6px
+    padding-right: 6px
+
+.candidates__button
+    cursor: pointer
+    margin: 3px
+    border: none
+    border-radius: 20px
+    padding: 10px
+    color: $lets-talk-white
+    background-color: $logo
+
+.presentation__alert
+    color: $logo
+    text-align: center
+    font-weight: bold
+    padding-bottom: 10px
+
+@media (min-width: 768px)
+
+    .presentation
+        width: 40%
+         
+
+@media (min-width: 1024px)
+
+    .presentation
+        width: 30%
+    

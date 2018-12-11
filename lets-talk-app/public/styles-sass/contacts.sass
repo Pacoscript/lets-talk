@@ -1,0 +1,92 @@
+.contacts
+    background-color: $lets-talk-white
+    min-height: 450px
+    padding-bottom: 20px
+        
+    
+// .contacts__container
+//     display: flex
+//     flex-flow: row wrap
+//     background-color: $lets_talk_green
+
+.contacts__section
+    background-color: $lets-talk-white
+
+.contact
+    cursor: pointer
+    margin-left: auto
+    margin-right: auto
+    width: 80%
+    max-width: 400px
+    // border: 1px solid $lets-talk-grey
+    border-radius: 5px
+    background-color: white
+    margin-bottom: 20px
+    text-align: center
+
+.contact__button
+    cursor: pointer
+    margin: 3px
+    border: none
+    border-radius: 20px
+    padding: 10px
+    color: $lets-talk-white
+    background-color: $logo
+    
+
+.contact__name
+    @extend .contact
+    color: $logo
+    text-align: center
+    border: none
+    padding-top: 5px
+
+    
+.contact__img__container
+    width: 200px
+    height: 200px
+    background: none
+    overflow: hidden
+    margin: auto
+    padding-bottom: 20px
+
+.contacts__message
+    text-align: justify
+    margin: auto
+    max-width: 90%
+    color: $logo
+    
+
+.contact__image
+    width: 100%
+    height: auto
+    
+
+@supports(object-fit: cover)
+    .contact__image
+        height: 100%
+        object-fit: cover
+        object-position: center center
+
+@media (min-width: 768px)
+
+    .contacts__section
+        display: flex
+        flex-wrap: wrap
+
+    .contact
+        width: 40%
+         
+
+@media (min-width: 1024px)
+
+    .contacts__section
+        display: flex
+        flex-wrap: wrap
+
+    .contact
+        width: 30%
+    
+    
+    
+    

@@ -1,0 +1,40 @@
+{
+  "name": "lets-talk-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-file-base64": "^1.0.3",
+    "react-md-spinner": "^0.3.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "test-logic": "mocha src/logic/index.spec.js",
+    "debug-test-logic": "mocha debug src/logic/index.spec.js",
+    "coverage": "nyc mocha src/logic/index.spec.js --timeout 15000",
+    "coverage-report": "nyc report --reporter=html"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "dotenv": "^6.2.0",
+    "isomorphic-fetch": "^2.2.1",
+    "lets-talk-data": "file:../lets-talk-data",
+    "nyc": "^13.1.0",
+    "sessionstorage": "^0.1.0"
+  }
+}
