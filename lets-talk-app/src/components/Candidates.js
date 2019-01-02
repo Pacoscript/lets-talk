@@ -20,7 +20,7 @@ class Candidates extends Component {
         }
 
         try {
-            logic.checkNewMessages(id)
+            logic.checkNewMessages()
                 .then(contacts => {
 
                     if (contacts.length > 0) this.setState({ newMessageFlag: true })

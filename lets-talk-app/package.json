@@ -15,7 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test-logic": "mocha src/logic/index.spec.js",
+    "test-logic": "mocha src/logic/index.spec.js --timeout 15000",
     "debug-test-logic": "mocha debug src/logic/index.spec.js",
     "coverage": "nyc mocha src/logic/index.spec.js --timeout 15000",
     "coverage-report": "nyc report --reporter=html"

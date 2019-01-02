@@ -14,7 +14,7 @@ class Contact extends Component {
         const contactId = this.props.id
 
         try {
-            logic.checkMessages(id, contactId)
+            logic.checkMessages(contactId)
                 .then(messages => {
 
                     if (messages.length > 3) this.setState({ photoFlag: true })
@@ -44,7 +44,7 @@ class Contact extends Component {
         }
 
         try {
-            logic.checkNewMessages(id)
+            logic.checkNewMessages()
                 .then(contacts => {
                     contacts.forEach(contact => {
 

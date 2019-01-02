@@ -2,7 +2,7 @@
 
 ## Now you should run the client
 
-$ cd lets-talk/client 
+$ cd lets-talk-app
 
 $ npm i
 

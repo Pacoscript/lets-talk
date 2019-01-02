@@ -358,13 +358,12 @@ const logic = {
      * @returns {array} array of objects with id, nameSentTo, nameUser, text, user
      */
 
-    retrieveMessages(id, contactId) {
+    retrieveMessages(contactId) {
 
         validate([
-            { key: 'id', value: id, type: String },
             { key: 'contactId', value: contactId, type: String }])
 
-        return fetch(`${this.url}/users/${id}/messages/${contactId}`, {
+        return fetch(`${this.url}/users/${this._userId}/messages/${contactId}`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${this._token}`,
@@ -390,13 +389,12 @@ const logic = {
      * @returns {array} array of objects with id, nameSentTo, nameUser, text, user
      */
 
-    checkMessages(id, contactId) {
+    checkMessages(contactId) {
 
         validate([
-            { key: 'id', value: id, type: String },
             { key: 'contactId', value: contactId, type: String }])
 
-        return fetch(`${this.url}/users/${id}/messages/${contactId}/check`, {
+        return fetch(`${this.url}/users/${this._userId}/messages/${contactId}/check`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${this._token}`,
@@ -423,11 +421,9 @@ const logic = {
      * 
      */
 
-    checkNewMessages(id) {
+    checkNewMessages() {
 
-        validate([{ key: 'id', value: id, type: String }])
-
-        return fetch(`${this.url}/users/${id}/newMessages`, {
+        return fetch(`${this.url}/users/${this._userId}/newMessages`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${this._token}`,

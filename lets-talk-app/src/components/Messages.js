@@ -16,7 +16,7 @@ class Messages extends Component {
         const contactId = this.state.contactId
 
         try {
-            logic.retrieveMessages(id, contactId)
+            logic.retrieveMessages(contactId)
                 .then(messages => {
                     if (messages.length > 0) {
                         if (messages[messages.length - 1].user === id) {
@@ -79,7 +79,7 @@ class Messages extends Component {
         const messagesActual = this.state.messages
 
         try {
-            logic.retrieveMessages(id, contactId)
+            logic.retrieveMessages(contactId)
                 .then(messages => {
                     if (messages.length > messagesActual.length) {
                         if (messages.length > 0) {
@@ -160,7 +160,7 @@ class Messages extends Component {
             }
 
             try {
-                await logic.retrieveMessages(id, contactId)
+                await logic.retrieveMessages(contactId)
                     .then(messages => {
                         if (messages[messages.length - 1].user === id) this.setState({ flag: true })
                         this.setState({ messages })
