@@ -13,7 +13,7 @@ class Photos extends Component {
         const contactId = this.state.contactId
 
         try {
-            logic.retrieveMessages(id, contactId)
+            logic.retrieveMessages(contactId)
                 .then(messages => {
                     if (messages.length > 3) this.setState({ flag1: true })
                     if (messages.length > 7) this.setState({ flag2: true })

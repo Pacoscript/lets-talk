@@ -573,6 +573,11 @@ const logic = {
 
             })
 
+            candidatesFiltered.forEach((candidate,index) => {
+                if(candidate.minAgePref>_user.age) candidatesFiltered.splice(index,1)
+                else if(candidate.maxAgePref<_user.age) candidatesFiltered.splice(index, 1)
+            })
+
             candidatesFiltered.sort(function (a, b) {
                 return (a.created - b.created)
             })

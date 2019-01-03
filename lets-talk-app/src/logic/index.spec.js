@@ -963,7 +963,7 @@ describe('logic', () => {
 
                 await logic.login(user.username, user.password)
 
-                const conversation = await logic.retrieveMessages(user.id, user2.id)
+                const conversation = await logic.retrieveMessages(user2.id)
 
                 expect(conversation.length).to.equal(3)
 
@@ -982,7 +982,7 @@ describe('logic', () => {
 
                 await logic.login(user2.username, user2.password)
 
-                const conversation = await logic.retrieveMessages(user2.id, user.id)
+                const conversation = await logic.retrieveMessages(user.id)
 
                 expect(conversation.length).to.equal(3)
 
@@ -1002,36 +1002,21 @@ describe('logic', () => {
 
             })
 
-            it('should fail on undefined user1', () => {
-                expect(() => logic.retrieveMessages(undefined, user2.id)).to.throw(TypeError, 'undefined is not a string')
-            })
-
-            it('should fail on empty user1', () => {
-                expect(() => logic.retrieveMessages('', user2.id)).to.throw(TypeError, 'id is empty or blank')
-            })
-
-            it('should fail on blank user1', () => {
-                expect(() => logic.retrieveMessages('   \t\n', user2.id)).to.throw(TypeError, 'id is empty or blank')
-            })
-
-            it('should fail on non string user1', () => {
-                expect(() => logic.retrieveMessages(10, user2.id)).to.throw(TypeError, '10 is not a string')
-            })
 
             it('should fail on undefined user2', () => {
-                expect(() => logic.retrieveMessages(user.id, undefined)).to.throw(TypeError, 'undefined is not a string')
+                expect(() => logic.retrieveMessages(undefined)).to.throw(TypeError, 'undefined is not a string')
             })
 
             it('should fail on empty user2', () => {
-                expect(() => logic.retrieveMessages(user.id, '')).to.throw(TypeError, 'contactId is empty or blank')
+                expect(() => logic.retrieveMessages('')).to.throw(TypeError, 'contactId is empty or blank')
             })
 
             it('should fail on blank user2', () => {
-                expect(() => logic.retrieveMessages(user.id, '   \t\n')).to.throw(TypeError, 'contactId is empty or blank')
+                expect(() => logic.retrieveMessages('   \t\n')).to.throw(TypeError, 'contactId is empty or blank')
             })
 
             it('should fail on non string user2', () => {
-                expect(() => logic.retrieveMessages(user.id, 10)).to.throw(TypeError, '10 is not a string')
+                expect(() => logic.retrieveMessages(10)).to.throw(TypeError, '10 is not a string')
             })
 
         })
@@ -1060,7 +1045,7 @@ describe('logic', () => {
 
                 await logic.login(user.username, user.password)
 
-                const conversation = await logic.checkMessages(user.id, user2.id)
+                const conversation = await logic.checkMessages(user2.id)
 
                 expect(conversation.length).to.equal(3)
 
@@ -1074,36 +1059,20 @@ describe('logic', () => {
             })
 
 
-            it('should fail on undefined user1', () => {
-                expect(() => logic.checkMessages(undefined, user2.id)).to.throw(TypeError, 'undefined is not a string')
-            })
-
-            it('should fail on empty user1', () => {
-                expect(() => logic.checkMessages('', user2.id)).to.throw(TypeError, 'id is empty or blank')
-            })
-
-            it('should fail on blank user1', () => {
-                expect(() => logic.checkMessages('   \t\n', user2.id)).to.throw(TypeError, 'id is empty or blank')
-            })
-
-            it('should fail on non string user1', () => {
-                expect(() => logic.checkMessages(10, user2.id)).to.throw(TypeError, '10 is not a string')
-            })
-
             it('should fail on undefined user2', () => {
-                expect(() => logic.checkMessages(user.id, undefined)).to.throw(TypeError, 'undefined is not a string')
+                expect(() => logic.checkMessages(undefined)).to.throw(TypeError, 'undefined is not a string')
             })
 
             it('should fail on empty user2', () => {
-                expect(() => logic.checkMessages(user.id, '')).to.throw(TypeError, 'contactId is empty or blank')
+                expect(() => logic.checkMessages('')).to.throw(TypeError, 'contactId is empty or blank')
             })
 
             it('should fail on blank user2', () => {
-                expect(() => logic.checkMessages(user.id, '   \t\n')).to.throw(TypeError, 'contactId is empty or blank')
+                expect(() => logic.checkMessages('   \t\n')).to.throw(TypeError, 'contactId is empty or blank')
             })
 
             it('should fail on non string user2', () => {
-                expect(() => logic.checkMessages(user.id, 10)).to.throw(TypeError, '10 is not a string')
+                expect(() => logic.checkMessages(10)).to.throw(TypeError, '10 is not a string')
             })
 
         })
@@ -1132,46 +1101,13 @@ describe('logic', () => {
 
                 await logic.login(user2.username, user2.password)
 
-                const contacts = await logic.checkNewMessages(user2.id)
+                const contacts = await logic.checkNewMessages()
 
                 expect(contacts.length).to.equal(1)
 
                 expect(contacts[0]).to.equal(user.id)
 
 
-            })
-
-
-            it('should fail on undefined user', () => {
-                expect(() => logic.checkNewMessages(undefined)).to.throw(TypeError, 'undefined is not a string')
-            })
-
-            it('should fail on empty user', () => {
-                expect(() => logic.checkNewMessages('')).to.throw(TypeError, 'id is empty or blank')
-            })
-
-            it('should fail on blank user', () => {
-                expect(() => logic.checkNewMessages('   \t\n')).to.throw(TypeError, 'id is empty or blank')
-            })
-
-            it('should fail on non string user', () => {
-                expect(() => logic.checkNewMessages(10)).to.throw(TypeError, '10 is not a string')
-            })
-
-            it('should fail on undefined user', () => {
-                expect(() => logic.checkNewMessages(undefined)).to.throw(TypeError, 'undefined is not a string')
-            })
-
-            it('should fail on empty user', () => {
-                expect(() => logic.checkNewMessages('')).to.throw(TypeError, 'id is empty or blank')
-            })
-
-            it('should fail on blank user', () => {
-                expect(() => logic.checkNewMessages('   \t\n')).to.throw(TypeError, 'id is empty or blank')
-            })
-
-            it('should fail on non string user', () => {
-                expect(() => logic.checkNewMessages(10)).to.throw(TypeError, '10 is not a string')
             })
 
         })

@@ -4,7 +4,7 @@
 
 $ git clone https://github.com/pacoscript/lets-talk.git
 
-$ cd lets-talk/server/api
+$ cd lets-talk-api
 
 $ npm i
 
