@@ -7,18 +7,12 @@ class Photos extends Component {
     state = { error: null, contactId: this.props.contactId, contactPhotos: undefined, contactName: this.props.contactName, flag1: false, flag2: false, flag3: false }
 
     componentDidMount() {
-
-        const id = logic._userId
-
-        const contactId = this.state.contactId
-
         try {
-            logic.retrieveMessages(contactId)
+            logic.retrieveMessages(this.state.contactId)
                 .then(messages => {
                     if (messages.length > 3) this.setState({ flag1: true })
                     if (messages.length > 7) this.setState({ flag2: true })
                     if (messages.length > 11) this.setState({ flag3: true })
-
                 })
                 .catch(err => this.setState({ error: err.message }))
         }
@@ -27,17 +21,13 @@ class Photos extends Component {
         }
 
         try {
-            logic.retrieveUserPhotos(contactId)
-
+            logic.retrieveUserPhotos(this.state.contactId)
                 .then(photos => {
-
                     if (photos.photo1 === '#') photos.photo1 = "./images/blank-profile-picture-973461_640.png"
                     if (photos.photo2 === '#') photos.photo2 = "./images/blank-profile-picture-973461_640.png"
                     if (photos.photo3 === '#') photos.photo3 = "./images/blank-profile-picture-973461_640.png"
-
                     this.setState({ contactPhotos: photos })
                 })
-
         }
         catch (err) {
             this.setState({ error: err.message })
@@ -46,9 +36,7 @@ class Photos extends Component {
     }
 
     render() {
-
         const error = this.state.error
-
         return <section className='photos'>
             {error && <Error message={error} />}
             

@@ -22,15 +22,11 @@ class Contacts extends Component {
   handleBlock = (user2) => {
     return (async () => {
       try {
-
         await logic.blockUser(user2)
-
       }
       catch (err) {
-
         this.setState({ error: err.message })
       }
-
 
       try {
         await logic.listContacts()

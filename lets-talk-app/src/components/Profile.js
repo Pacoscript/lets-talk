@@ -8,12 +8,8 @@ class Profile extends Component {
     state = { name: '', surname: '', username: '', password: '', newPassword: '', newPassword2: '', sex: '', age: '', city: '', presentation: '', minAgePref: '', maxAgePref: '', photo1: undefined, photo2: undefined, photo3: undefined, whichPhoto: 'photo1', loading: true, error: null }
 
     componentDidMount = () => {
-
-        const id = logic._userId
-
-        logic.retrieveUser(id)
+        logic.retrieveUser(logic._userId)
             .then(user => {
-
                 const name = user.name
                 const surname = user.surname
                 const username = user.username
@@ -113,9 +109,7 @@ class Profile extends Component {
         this.setState({ maxAgePref })
     }
 
-    handleSubmit = event => {
-        // event.preventDefault()
-
+    handleSubmit = () => {
         const { name, surname, username, password, newPassword, newPassword2, sex, age, city, presentation, minAgePref, maxAgePref } = this.state
 
         try {
