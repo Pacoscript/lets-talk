@@ -7,11 +7,9 @@ class Candidates extends Component {
     state = { error: null, listCandidates: false, ind: 0, newMessageFlag: false }
 
     componentDidMount = () => {
-
-        const id = logic._userId
-
         try {
-            logic.retrieveCandidates(id)
+
+            logic.retrieveCandidates(logic._userId)
                 .then(listCandidates => this.setState({ listCandidates }))
                 .catch(err => this.setState({ error: err.message }))
         }
@@ -22,50 +20,37 @@ class Candidates extends Component {
         try {
             logic.checkNewMessages()
                 .then(contacts => {
-
                     if (contacts.length > 0) this.setState({ newMessageFlag: true })
-
                 })
                 .catch(err => this.setState({ error: err.message }))
         }
         catch (err) {
             this.setState({ error: err.message })
         }
-
     }
 
     handleNext = () => {
-
         let ind = this.state.ind
 
-        let length = this.state.listCandidates.length
-        if (ind < length - 1) ind++
+        if (ind < this.state.listCandidates.length - 1) ind++
+
         else ind = 0
 
         this.setState({ ind })
-
     }
 
     handlePrev = () => {
-
         let ind = this.state.ind
 
-        let length = this.state.listCandidates.length
-        if (ind === 0) ind = length - 1
+        if (ind === 0) ind = this.state.listCandidates.length - 1
+
         else ind--
 
         this.setState({ ind })
-
     }
 
     handleNewMessage = () => {
-        const ind = this.state.ind
-
-        const idContact = this.state.listCandidates[ind].id
-
-        const nameContact = this.state.listCandidates[ind].name
-
-        this.props.onMessage(idContact, nameContact)
+        this.props.onMessage(this.state.listCandidates[this.state.ind].id, this.state.listCandidates[this.state.ind].name)
     }
 
     render() {

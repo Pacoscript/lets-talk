@@ -7,10 +7,7 @@ class Navbar extends Component {
     state = { error: null, name: 'name' }
 
     componentDidMount() {
-
-        const id = logic._userId
-
-        logic.retrieveUser(id)
+        logic.retrieveUser(logic._userId)
             .then(user => {
 
                 const name = user.name
@@ -54,6 +51,5 @@ class Navbar extends Component {
         </header>
     }
 }
-
 
 export default Navbar

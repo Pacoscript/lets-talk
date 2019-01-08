@@ -79,8 +79,6 @@ class Register extends Component {
 
     }
 
-
-
     render() {
 
         const error = this.props.error
@@ -109,8 +107,6 @@ class Register extends Component {
                     </select>
                     <label>Age </label>
                     <input className='register__input' maxLength='16' onChange={this.handleAgeChange} />
-                    {/* <label>City  </label>
-                    <input className= 'register__input' maxLength='16' onChange={this.handleCityChange} /> */}
                     <label>City </label>
                     <select className='register__input' defaultValue="" onChange={this.handleCityChange}>
                         <option value="">CHOSE YOUR CITY</option>
@@ -167,7 +163,6 @@ class Register extends Component {
                         <option value='Vizcaya' >Vizcaya</option>
                         <option value='Zamora' >Zamora</option>
                         <option value='Zaragoza'>Zaragoza</option>
-
                     </select>
                     <label>Presentation  </label>
                     <textarea className='regist__textarea' maxLength='280' onChange={this.handlePresentationChange}></textarea>

@@ -23,7 +23,6 @@ function LandingNavbar(props) {
             </div>
         </div>
         <div className='header__menu_2'>
-
             <button className='menu__button' onClick={() => props.onGoLandingClick()} >Landing</button><br />
             <button className='menu__button' onClick={() => props.onGoRegisterClick()}>Register</button><br />
             <button className='menu__button' onClick={() => props.onGoLoginClick()}>Login</button>
