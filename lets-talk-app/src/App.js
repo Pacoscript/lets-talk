@@ -20,28 +20,21 @@ class App extends Component {
   state = { error: null, contactId: false, contactName: false, contactPhotos: undefined }
 
   handleGoRegister = () => {
-
     this.setState({ error: null})
-
     return this.props.history.push('/register')
   }
 
   handleGoLanding = () => {
-
     this.setState({ error: null})
-
     return this.props.history.push('/')
   }
 
   handleGoLogin = () => {
-
     this.setState({ error: null})
-
     return this.props.history.push('/login')
   }
 
   handleRegister = (name, surname, username, password, sex, age, city, presentation, minAgePref, maxAgePref) => {
-
     try {
       logic.registerUser(name, surname, username, password, sex, age, city, presentation, minAgePref, maxAgePref)
         .then(() => {
@@ -55,7 +48,6 @@ class App extends Component {
   }
 
   handleLogin = (username, password) => {
-
     try {
       logic.login(username, password)
         .then(() => {
@@ -65,18 +57,15 @@ class App extends Component {
     } catch (err) {
       this.setState({ error: err.message })
     }
-
   }
 
   handleLogout = () => {
     logic.logout()
-
     this.props.history.push('/')
   }
 
   handleProfile = () => {
     this.props.history.push('/profile')
-
   }
 
   handleCandidates = () => {
