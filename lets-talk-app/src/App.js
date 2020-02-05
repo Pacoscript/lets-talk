@@ -23,16 +23,6 @@ class App extends Component {
     contactPhotos: undefined,
   }
 
-  handleGoRegister = () => {
-    this.setState({ error: null })
-    return this.props.history.push('/register')
-  }
-
-  handleGoLogin = () => {
-    this.setState({ error: null })
-    return this.props.history.push('/login')
-  }
-
   handleRegister = (
     name,
     surname,

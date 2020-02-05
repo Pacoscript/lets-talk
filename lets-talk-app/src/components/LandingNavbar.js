@@ -5,6 +5,13 @@ function LandingNavbar(props) {
   const handleGoLanding = () => {
     return props.history.push('/')
   }
+  const handleGoRegister = () => {
+    return props.history.push('/register')
+  }
+
+  const handleGoLogin = () => {
+    return props.history.push('/login')
+  }
   return (
     <header>
       <div className="header__logo">
@@ -25,14 +32,14 @@ function LandingNavbar(props) {
             <br />
             <button
               className="drop__button"
-              onClick={() => props.onGoRegisterClick()}
+              onClick={handleGoRegister}
             >
               Register
             </button>
             <br />
             <button
               className="drop__button"
-              onClick={() => props.onGoLoginClick()}
+              onClick={handleGoLogin}
             >
               Login
             </button>
@@ -46,12 +53,12 @@ function LandingNavbar(props) {
         <br />
         <button
           className="menu__button"
-          onClick={() => props.onGoRegisterClick()}
+          onClick={handleGoRegister}
         >
           Register
         </button>
         <br />
-        <button className="menu__button" onClick={() => props.onGoLoginClick()}>
+        <button className="menu__button" onClick={handleGoLogin}>
           Login
         </button>
       </div>
