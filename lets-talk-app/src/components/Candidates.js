@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import logic from '../logic'
 import Error from './Error'
+import { withRouter } from 'react-router-dom'
 
 class Candidates extends Component {
 
@@ -50,8 +51,25 @@ class Candidates extends Component {
     }
 
     handleNewMessage = () => {
-        this.props.onMessage(this.state.listCandidates[this.state.ind].id, this.state.listCandidates[this.state.ind].name)
+        this.onMessage(this.state.listCandidates[this.state.ind].id, this.state.listCandidates[this.state.ind].name)
     }
+
+    onMessage = (idContact, nameContact) => {
+        try {
+          logic
+            .addContact(idContact)
+            .then(() => {
+              this.setState({ error: null }, () =>
+                this.props.history.push(`/messages/${idContact}`)
+              )
+            })
+            .catch(err => this.setState({ error: err.message }))
+        } catch (err) {
+          this.setState({ error: err.message })
+        }
+        const contactName = nameContact
+        this.setState({ contactName })
+      }
 
     render() {
 
@@ -89,4 +107,4 @@ class Candidates extends Component {
     }
 }
 
-export default Candidates
+export default withRouter(Candidates)

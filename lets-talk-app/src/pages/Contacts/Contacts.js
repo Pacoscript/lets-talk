@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import Contact from './Contact'
-import logic from '../logic'
-import Error from './Error'
+import Contact from '../../components/Contact'
+import logic from '../../logic'
+import Error from '../../components/Error'
+import { withRouter } from 'react-router-dom'
 
 class Contacts extends Component {
 
@@ -40,6 +41,12 @@ class Contacts extends Component {
 
   }
 
+  handleGoContact = (contactId, contactName) => {
+    this.setState({ contactId, contactName }, () =>
+      this.props.history.push(`/messages/${contactId}`)
+    )
+  }
+
   render() {
 
     const error = this.state.error
@@ -52,7 +59,7 @@ class Contacts extends Component {
 
 
       <section className='contacts__section'>
-        {this.state.listContacts.map(contact => <Contact key={contact.id} id={contact.id} name={contact.name} onGoContact={this.props.onGoContact} onBlockContact={this.handleBlock} />)}
+        {this.state.listContacts.map(contact => <Contact key={contact.id} id={contact.id} name={contact.name} onGoContact={this.handleGoContact} onBlockContact={this.handleBlock} />)}
         {(this.state.listContacts.length === 0) && <p className = 'contacts__message'>`You don´t have any contact yet, what are you waiting for?`</p>}
       </section>
 
@@ -60,4 +67,4 @@ class Contacts extends Component {
   }
 }
 
-export default Contacts
+export default withRouter(Contacts)
