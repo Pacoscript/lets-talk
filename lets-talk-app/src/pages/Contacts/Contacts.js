@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Contact from '../../components/Contact'
+import Contact from './Contact/Contact'
 import logic from '../../logic'
 import Error from '../../components/Error'
 import { withRouter } from 'react-router-dom'

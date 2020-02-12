@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import logic from "../logic";
-import Error from "./Error";
+import logic from "../../../logic";
+import Error from "../../../components/Error";
 
 class Contact extends Component {
   state = {

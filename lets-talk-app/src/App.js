@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import LandingNavbar from './components/LandingNavbar'
-import Footer from './components/Footer'
-import Landing from './components/Landing'
+import Footer from './hoc/Footer/Footer'
+import Landing from './pages/Landing/Landing'
+import NavbarComponent from './hoc/NavbarComponent/NavbarComponent'
 import Register from './pages/Register/Register'
 import Login from './pages/Login/Login'
-import Candidates from './components/Candidates'
+import Candidates from './pages/Candidates/Candidates'
 import Contacts from './pages/Contacts/Contacts'
 import Messages from './pages/Messages/Messages'
-import Navbar from './components/Navbar'
-import Profile from './components/Profile'
-import Photos from './components/Photos'
+// import Navbar from './components/Navbar'
+import Profile from './pages/Profile/Profile'
+import Photos from './pages/Photos/Photos'
 import logic from './logic'
 import { Route, withRouter, Redirect } from 'react-router-dom'
 
@@ -26,8 +26,7 @@ class App extends Component {
   render() {
     return (
       <>
-        {logic.loggedIn && <LandingNavbar />}
-        {!logic.loggedIn && <Navbar />}
+        <NavbarComponent/>
         <Route
           exact
           path="/"
@@ -74,7 +73,7 @@ class App extends Component {
             />
           )}
         />
-        <Route path="/" render={() => <Footer />} />
+        <Footer/>
       </>
     )
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import logic from '../logic'
+import logic from '../../logic'
 import FileBase64 from "react-file-base64"
-import Error from './Error'
+import Error from '../../components/Error'
 import MDSpinner from "react-md-spinner"
 
 class Profile extends Component {
