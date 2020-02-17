@@ -14,10 +14,10 @@ class App extends Component {
     error: null,
     contactId: false,
     contactName: false,
-    contactPhotos: undefined,
+    contactPhotos: undefined
   }
 
-  render() {
+  render () {
     return (
       <>
         <NavbarComponent/>

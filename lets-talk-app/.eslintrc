@@ -1,0 +1,20 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "standard",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "react/prop-types": "off",
+    "camelcase": "off",
+    "jsx-quotes": "error",
+    "no-console": 2,
+    "no-debugger": 2,
+    "no-nested-ternary": 1,
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
