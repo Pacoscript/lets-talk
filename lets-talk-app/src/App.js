@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import Footer from './hoc/Footer/Footer'
 import Router from './router/Router'
-
 import NavbarComponent from './hoc/NavbarComponent/NavbarComponent'
-
 import logic from './logic'
 import { withRouter } from 'react-router-dom'
 
