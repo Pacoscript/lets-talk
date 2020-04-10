@@ -7,4 +7,4 @@ data/users/**/*.gif
 data/users/**/*.bmp
 data/users/**/*.svg
 !data/users/default/profile.png
-node_modules
+/node_modules
