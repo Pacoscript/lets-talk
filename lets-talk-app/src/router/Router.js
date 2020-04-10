@@ -11,7 +11,7 @@ import Photos from '../pages/Photos/Photos'
 import logic from '../logic'
 import { Route, withRouter, Redirect } from 'react-router-dom'
 
-const Router = props => {
+const Router = (props) => {
   return (
     <>
       <Route
@@ -36,7 +36,7 @@ const Router = props => {
       <Route path="/candidates" render={() => <Candidates />} />
       <Route
         path="/messages/:id"
-        render={props => (
+        render={(props) => (
           <Messages
             contactId={props.match.params.id}
             contactName={this.state.contactName}
@@ -47,7 +47,7 @@ const Router = props => {
       <Route path="/profile" render={() => <Profile />} />
       <Route
         path="/photos/:id/:name"
-        render={props => (
+        render={(props) => (
           <Photos
             contactId={props.match.params.id}
             contactName={props.match.params.name}

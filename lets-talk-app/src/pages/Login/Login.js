@@ -34,7 +34,7 @@ class Login extends Component {
   }
 
   render() {
-    const error = this.props.error
+    const error = this.state.error
 
     return (
       <main className="login">
