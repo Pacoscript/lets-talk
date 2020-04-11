@@ -18,10 +18,10 @@ class Contacts extends Component {
     }
   }
 
-  handleBlock = (user2) => {
+  handleBlock = (user) => {
     return (async () => {
       try {
-        await logic.blockUser(user2)
+        await logic.blockUser(user)
       } catch (err) {
         this.setState({ error: err.message })
       }
