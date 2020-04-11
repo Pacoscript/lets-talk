@@ -39,7 +39,7 @@ const Router = (props) => {
         render={(props) => (
           <Messages
             contactId={props.match.params.id}
-            contactName={this.state.contactName}
+            contactName={props.match.params.contactName}
           />
         )}
       />
