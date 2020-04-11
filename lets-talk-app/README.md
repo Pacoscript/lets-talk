@@ -1,6 +1,18 @@
-## If you want to try the app on your pc:
+## If you want to try the app on your  pc:
 
-## Now you should run the client
+# First you should init the api
+
+1- You should run the api server (Need a mongodb initiated)
+
+$ git clone https://github.com/pacoscript/lets-talk.git
+
+$ cd lets-talk-api
+
+$ npm i
+
+$ node .
+
+# Then you can run the app
 
 $ cd lets-talk-app
 
