@@ -89,7 +89,7 @@ class Register extends Component {
           <>
             <label>{field.label}</label>
             {this.state.requiredFields[field.name] === true ? (
-              <label style={{ color: 'red', fontSize: '75%' }}> (this field is required)</label>
+              <label style={{ color: 'red', fontSize: '75%' }}> this field is required</label>
             ) : null}
             <input
               className="register__input"

@@ -25,7 +25,7 @@ http://lets-talk.surge.sh
 ![](images/register_mobile_1.png)
 
 # Candidates
-* You can pass candidates, when you find one you like her/his description yo can sen an unic message.
+* You can pass candidates, when you find one you like her/his description yo can send an unic message.
 
 ![](images/candidates.png)
 
