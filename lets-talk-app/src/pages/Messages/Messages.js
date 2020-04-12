@@ -128,7 +128,6 @@ class Messages extends Component {
 
   handleTextChange = event => {
     const text = event.target.value
-
     this.setState({ text })
   }
 
@@ -163,30 +162,20 @@ class Messages extends Component {
 
   render() {
     const error = this.state.error
+    const imgSrc = this.state.photoFlag === true ?
+      (this.state.contactPhotos && this.state.contactPhotos.photo1) :
+      "./images/blank-profile-picture-973461_640.png"
 
     return (
       <main className="messages__page">
         <section className="messages__head">
-          {this.state.photoFlag && (
             <div className="imgmini__container">
               <img
                 alt="imgmini face"
                 className="imgmini"
-                src={
-                  this.state.contactPhotos && this.state.contactPhotos.photo1
-                }
+                src={imgSrc}
               ></img>
             </div>
-          )}
-          {!this.state.photoFlag && (
-            <div className="imgmini__container">
-              <img
-                alt="imgmini face"
-                className="imgmini"
-                src="./images/blank-profile-picture-973461_640.png"
-              ></img>
-            </div>
-          )}
           <div>
             <h1 className="messages__name"> {this.state.contactName}</h1>
           </div>
