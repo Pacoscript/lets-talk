@@ -5,10 +5,12 @@ const cloudinary = require('cloudinary')
 // const fs = require('fs')
 // const path = require('path')
 
+const { env: { cloud_name, api_key, api_secret } } = process
+
 cloudinary.config({
-    cloud_name: 'skylab-paco',
-    api_key: '398374729263247',
-    api_secret: '8QwEJKmVzZU8T3ptAXWxycxGDm4'
+    cloud_name,
+    api_key,
+    api_secret
 })
 
 const logic = {
@@ -16,11 +18,11 @@ const logic = {
 
     /**
      * saveImage: upload a file in cloudinary
-     * 
-     * @param {string} base64Image 
-     * 
+     *
+     * @param {string} base64Image
+     *
      * @returns {string} data.url: the url with te image uploaded
-     * 
+     *
      */
     _saveImage(base64Image) {
         return Promise.resolve().then(() => {
@@ -46,7 +48,7 @@ const logic = {
 
     /**
      * registerUser: save a new user in the data base
-     * 
+     *
      * @param {string} name the name of the user
      * @param {string} surname the surname of the user
      * @param {string} username the username
@@ -57,9 +59,9 @@ const logic = {
      * @param {string} presentation presentation to be showed to the other users
      * @param {number} minAgePref looking for this minim age
      * @param {number} maxAgePref looking for this max age
-     * 
+     *
      * @return no return
-     * 
+     *
      */
     registerUser(name, surname, username, password, sex, age, city, presentation, minAgePref, maxAgePref) {
 
@@ -90,10 +92,10 @@ const logic = {
 
     /**
      * authenticateUser: check username and password to authenticate the user
-     * 
-     * @param {string} username 
-     * @param {string} password 
-     * 
+     *
+     * @param {string} username
+     * @param {string} password
+     *
      * @returns the user id and token
      */
     authenticateUser(username, password) {
@@ -110,11 +112,11 @@ const logic = {
 
     /**
      * retrieveUser: it get the user information
-     * 
-     * @param {string} id 
-     * 
+     *
+     * @param {string} id
+     *
      * @returns: returns all the user parameters (no mongo stuff)
-     * 
+     *
      */
 
     retrieveUser(id) {
@@ -137,11 +139,11 @@ const logic = {
 
      /**
          * retrieveUserPhotos: it returns all the photos uploaded by the user in his profile
-         * 
-         * @param {string} id 
-         * 
+         *
+         * @param {string} id
+         *
          * @returns {array} array with photos of the user
-         * 
+         *
          */
 
     retrieveUserPhotos(id) {
@@ -159,23 +161,23 @@ const logic = {
 
     /**
      * updateUser: this function is used by the user to change the parameters of his profile, photos not included
-     * 
-     * @param {string} id 
-     * @param {string} name 
-     * @param {string} surname 
-     * @param {string} username 
-     * @param {string} password 
-     * @param {string} newPassword 
-     * @param {string} newPassword2 
-     * @param {string} sex 
-     * @param {number} age 
-     * @param {string} city 
-     * @param {string} presentation 
-     * @param {number} minAgePref 
-     * @param {number} maxAgePref 
-     * 
+     *
+     * @param {string} id
+     * @param {string} name
+     * @param {string} surname
+     * @param {string} username
+     * @param {string} password
+     * @param {string} newPassword
+     * @param {string} newPassword2
+     * @param {string} sex
+     * @param {number} age
+     * @param {string} city
+     * @param {string} presentation
+     * @param {number} minAgePref
+     * @param {number} maxAgePref
+     *
      * @returns nothing, this function doesn't return anything
-     * 
+     *
      */
 
     updateUser(id, name, surname, username, password, newPassword, newPassword2, sex, age, city, presentation, minAgePref, maxAgePref) {
@@ -240,12 +242,12 @@ const logic = {
     },
 
     /**
-     * addContact: add another person to the list of contacts of the user, 
+     * addContact: add another person to the list of contacts of the user,
      * it saves there the id of the user added
-     * 
+     *
      * @param {string} id id of the user logged
      * @param {string} idContact id of the contact to add to the list
-     * 
+     *
      * @returns anything
      */
 
@@ -284,11 +286,11 @@ const logic = {
 
     /**
      * listContacts: this function is used to retrieve all the contacts of a user, all their id´s
-     * 
+     *
      * @param {string} userId the id of the user logged
-     * 
+     *
      * @returns {array} array of objects with id, name, presentation, photo1 of the contacts
-     * 
+     *
      */
     listContacts(userId) {
         validate([
@@ -308,31 +310,31 @@ const logic = {
             if (!user) throw new NotFoundError(`user with id ${userId} not found`)
 
             const contacts = await Promise.all(user.contacts.map(async contactId => await User.findById(contactId)))
-            
+
             contacts.forEach((contact, index) => {
                 user.blocks.forEach(id => {
-                    
+
                     if (id === contact.id) contacts.splice(index, 1)
                 })
                 contact.blockedBy.forEach(blockedBy => {
-                    
+
                     if (blockedBy === user.id) contacts.splice(index, 1)
                 })
             })
-            
+
             return contacts.map(({ id, name, presentation, photo1 }) => ({ id, name, presentation, photo1 }))
         })()
 
     },
 
     /**
-     * addMessage: creates a new Message with the author, the destinatary and the text of the message, 
+     * addMessage: creates a new Message with the author, the destinatary and the text of the message,
      * with the date of creation too, and saves it in the data base
-     * 
+     *
      * @param {string} user id of the user logged
      * @param {string} sentTo id of the contact to send a message
      * @param {string} text text of the message
-     * 
+     *
      * @returns nothing
      */
 
@@ -376,12 +378,12 @@ const logic = {
 
     /**
      * retrieveMessages: it search a conversation between two users, all the messages, and order them
-     * by date. If the the last message is pending and the user is who is sended than message, pass it 
+     * by date. If the the last message is pending and the user is who is sended than message, pass it
      * to readed
      *
      * @param {string} user1 id jof the user logged
      * @param {string} user2 id of the contact
-     * 
+     *
      * @returns {array} array of objects with id, nameSentTo, nameUser, text, user
      */
     retrieveMessages(user1, user2) {
@@ -432,10 +434,10 @@ const logic = {
 
     /**
      * checkMessages: it is used when we need the list of messages but we don´t want to change anything of them
-     * 
+     *
      * @param {string} user1 id of the user logged
      * @param {string} user2 id of the contact
-     * 
+     *
      * @returns {array} array of objects with id, nameSentTo, nameUser, text, user
      */
 
@@ -475,12 +477,12 @@ const logic = {
 
     /**
      * checkNewMessages: it check if a user have new messages and from who
-     * 
+     *
      * @param {string} user the id of the user
-     * 
+     *
      * @returns {array} an array of id of the contacts with messages for the user. Messages with the status
      * pending only.
-     * 
+     *
      */
     checkNewMessages(user) {
 
@@ -510,7 +512,7 @@ const logic = {
                     if(id === userBlockedBy) flag = true
 
                 })
-                
+
                 if (flag != true) contacts.push(id)
             })
 
@@ -523,9 +525,9 @@ const logic = {
     /**
      * listCandidates: it returns a list of persons who are of the sex, city and range of age choosen by
      * the user, to show him their names and presentations.
-     * 
+     *
      * @param {string} user id of the user logged
-     * 
+     *
      * @returns {array} of candidates whit their id, name and presentation
      */
 
@@ -549,8 +551,8 @@ const logic = {
             let sexSearch = ''
 
             if (_user.sex === 'MALE') sexSearch = 'FEMALE'
-            else sexSearch = 'MALE' 
-            
+            else sexSearch = 'MALE'
+
             let city = _user.city
 
             const contacts = _user.contacts
@@ -612,9 +614,9 @@ const logic = {
 
     /**
      * insertPhoto: it saves a photo in the profile of a user
-     * 
+     *
      * @param {string} id id of the user logged
-     * @param {string} chunk base64Image 
+     * @param {string} chunk base64Image
      * @param {string} photo string to identificate which of the tree photos of the profile we want to save
      */
 
@@ -650,10 +652,10 @@ const logic = {
     /**
      * blockUser: it add the contact id to the list of blocked users of the user logged, and to the list
      * of blockedBy of the contact
-     * 
+     *
      * @param {string} user1 id of the user logged
      * @param {string} user2 id of the user to block
-     * 
+     *
      * @returns anything
      */
 
