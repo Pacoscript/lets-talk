@@ -15,11 +15,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "busboy": "^0.2.14",
     "cloudinary": "^1.13.2",
     "dotenv": "^6.1.0",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "jsonwebtoken": "^8.3.0",
     "lets-talk-data": "file:../lets-talk-data",
     "node": "^11.1.0",
