@@ -19,7 +19,7 @@
     "busboy": "^0.2.14",
     "cloudinary": "^1.13.2",
     "dotenv": "^6.1.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "jsonwebtoken": "^8.3.0",
     "lets-talk-data": "file:../lets-talk-data",
     "node": "^11.1.0",
